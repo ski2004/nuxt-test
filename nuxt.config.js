@@ -13,6 +13,12 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      // { src: 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js' },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.js' },
+      { src: 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' }
+      
     ]
   },
   /*
@@ -23,6 +29,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/scss/layout.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -30,25 +37,28 @@ export default {
   plugins: [
   ],
   /*
+  ** Nuxt.js dev-modules
+  */
+  buildModules: [
+  ],
+  /*
   ** Nuxt.js modules
   */
   modules: [
+    // Doc: https://bootstrap-vue.js.org
+    'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/pwa',
+    // Doc: https://github.com/nuxt-community/dotenv-module
+    '@nuxtjs/dotenv',
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    prefix: '/api/',
-    proxy: true // Can be also an object with default options
   },
-
-  proxy: {
-    '/api/': { target: 'http://localhost:8000', pathRewrite: { '^/api/': '' } }
-  },
-
   /*
   ** Build configuration
   */
@@ -56,7 +66,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
+    extend (config, ctx) {
     }
   }
 }
