@@ -1,15 +1,21 @@
 <template>
   <div>
     <headers />
-    <nuxt />
+     <client-only placeholder="Loading...">
+      <nuxt />
+    </client-only>
   </div>
 </template>
 <script>
-import headers from '@/components/header.vue'
+import headers from '@/components/header2.vue'
+import test from '@/components/test.vue'
+import ClientOnly from 'vue-client-only'
 
 export default {
   components: {
-    headers
+    headers,
+    ClientOnly,
+    test
   }
 }
 </script>
